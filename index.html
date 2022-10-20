@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header id="head">
+    </header>
+    <main>
+        <div id="inMainFirst"></div>
+        <div id="inMainSecond"></div>
+        <div class="containerSlider">
+            <div class="windowSlider">
+                <div class="rowSlider">
+                    <div class="cadrSlider">
+                        <img src="images/sec.png" alt="1">
+                    </div>
+                    <div class="cadrSlider">
+                        <img src="images/sec2.png" alt="2">
+                    </div>
+                    <div class="cadrSlider">
+                        <img src="images/sec3.png" alt="3">
+                    </div>
+                    <div class="cadrSlider">
+                        <img src="images/sec4.png" alt="4">
+                    </div>
+                </div>
+            </div>
+            <button class="btnSlider">
+                Листать
+            </button>
+        </div>
+    </main>
+    <footer id="footer">
+    </footer>
+
+    <script>
+        const rowSlider= document.querySelector(".rowSlider");
+        const btn= document.querySelector(".btnSlider");
+        let q=0;
+        btn.addEventListener("click", function(){
+            q=q-400;
+            if (q<-1200){
+                q=0;
+            }
+            rowSlider.style.left=`${q}px`;
+        });
+    </script>
+
+    <script type="text/babel">
+        class HeadOfPage extends React.Component {
+            render() {
+                const headStyle= {
+                    backgroundColor: "#FFF",
+                    boxSizing: "border-box",
+                    minHeight: "900px",
+                    paddingTop: "165px",
+                    paddingBottom: "27px",
+                    backgroundImage: this.props.backgImg,
+                    backgroundPosition: "right center",
+                    backgroundRepeat: "no-repeat"
+                };
+                const headCaption= {
+                    margin: "0 auto",
+                    maxWidth: "1200px",
+                    boxSizing: "border-box",
+                    padding: "0 10px",
+                    fontSize: "60px",
+                    fontFamily: "FiraSans, sans-serif",
+                    fontWeight: "normal"
+                };
+                const itemHeadCaption= {
+                    display: "block"
+                };
+                const headParag= {
+                    margin: "18px auto 0",
+                    maxWidth: "1200px",
+                    boxSizing: "border-box",
+                    padding: "0 10px",
+                    fontSize: "32px",
+                    fontFamily: "FiraSans, sans-serif",
+                    fontWeight: "normal"
+                }
+                const itemHeadParag= {
+                    display: "block"
+                }
+                const john= {
+                    fontWeight: "bold"
+                }
+
+                return <div style={headStyle}>
+                            <h1 style={headCaption}>
+                                <span style={itemHeadCaption}>
+                                    {this.props.firstCaption}
+                                </span>
+                                <span style={itemHeadCaption}>
+                                    {this.props.secondCaption}
+                                </span>
+                            </h1>
+                            <p style={headParag}>
+                                <span style={itemHeadParag}>
+                                    <span>{this.props.firstParag}</span>
+                                    <span style={john}>{this.props.johnDoe}</span>.
+                                </span>
+                                <span style={itemHeadParag}>
+                                    {this.props.secondParag}
+                                </span>
+                            </p>  
+                        </div>
+            }
+        }
+
+        ReactDOM.render(
+            <HeadOfPage
+                firstCaption="Amazing Dude."
+                secondCaption="Amazing Life."
+                firstParag="Welcome to the personal site of "
+                johnDoe="John Doe"
+                secondParag="A professional skier and a musician."
+                backgImg='url("images/head.png")'
+            />,
+            document.querySelector("#head")
+        );
+
+        class BottomOfPage extends React.Component {
+            render() {
+                const styleBlockFooter= {
+                    backgroundColor: "brown",
+                    padding: "27px 0 32px",
+                    margin: "0",
+                    boxSizing: "border-box"
+                };
+                const styleCaptionFooter= {
+                    margin: "0 auto",
+                    padding: "0 10px",
+                    boxSizing: "border-box",
+                    maxWidth: "1200px",
+                    fontSize: "50px",
+                    fontWeight: "normal",
+                    fontFamily: "FiraSans, sans-serif",
+                    color: this.props.colorCaptionFooter
+                };
+                const styleParagraphFooter= {
+                    margin: "24px auto 0",
+                    padding: "0 10px",
+                    boxSizing: "border-box",
+                    maxWidth: "1200px",
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    fontFamily: "FiraSans, sans-serif",
+                    color: this.props.colorParagraphFooter
+                };
+
+                return <div style={styleBlockFooter}>
+                            <h2 style={styleCaptionFooter}>
+                                {this.props.bottomCaption}
+                            </h2>
+                            <p style={styleParagraphFooter}>
+                                {this.props.bottomParagraph}
+                            </p>
+                        </div>
+            }
+        }
+
+        ReactDOM.render(
+            <BottomOfPage
+                bottomCaption="John Doe."
+                bottomParagraph="Lorem ipsum dolor sit amet!"
+                colorCaptionFooter="white"
+                colorParagraphFooter="white"
+            />,
+            document.querySelector("#footer")
+        );
+
+        class Button extends React.Component {
+            render(){
+                const buttonStyle= {
+                    boxSizing: "border-box",
+                    width: "100%",
+                    minHeight: "100%",
+                    borderRadius: "29px",
+                    borderWidth: "2px",
+                    borderColor: "white",
+                    borderStyle: "solid",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                    color: "white",
+                    fontSize: "21px",
+                    fontWeight: "bold",
+                    fontFamily: "FiraSans, sans-serif",
+                    backgroundColor: this.props.colBtn
+                }
+                return <a href="#" style={buttonStyle}>
+                            {this.props.conBtn}
+                        </a>
+            }
+        }
+        class Card extends React.Component {
+            render(){
+                const baseCard= {
+                    margin: "0",
+                    backgroundColor: this.props.bgColor,
+                    padding: "30px 0"
+                }
+                const paragCard= {
+                    margin: "0 auto",
+                    maxWidth: "1200px",
+                    boxSizing: "border-box",
+                    padding: "0 10px",
+                    color: "white",
+                    fontSize: "44px",
+                    fontWeight: "normal",
+                    fontFamily: "FiraSans, sans-serif"
+                }
+                const containerCard= {
+                    width: "280px",
+                    height: "58px",
+                    margin: "30px auto 0",
+                    padding: "0"
+                }
+                return <div style={baseCard}>
+                           <p style={paragCard}>
+                                {this.props.contParag}
+                            </p>
+                            <div style={containerCard}>
+                                <Button
+                                    colBtn={this.props.colBtn}
+                                    conBtn={this.props.conBtn}
+                                />
+                            </div> 
+                        </div>
+            }
+        }
+
+        ReactDOM.render(
+                <Card
+                    contParag="Lorem ipsum dolor sit amet!"
+                    bgColor="red"
+                    colBtn="black"
+                    conBtn="Welcome!"
+                />,
+                document.querySelector("#inMainFirst")
+            );
+        ReactDOM.render(
+                <Card
+                    contParag="John Doe it is skier and a musician."
+                    bgColor="gray"
+                    colBtn="darkmagenta"
+                    conBtn="Go to play!"
+                />,
+                document.querySelector("#inMainSecond")
+            );
+    </script>
+</body>
+</html>

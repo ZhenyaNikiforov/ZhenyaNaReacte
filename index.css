@@ -1,0 +1,101 @@
+html {
+    height: 100%;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: blueviolet;
+}
+body {
+    min-height: 100%;
+    max-width: 1600px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    margin: 0;
+    min-height: 18px;
+    background-color: violet;
+}
+main {
+    margin: 0;
+    min-height: 18px;
+    background-color: aqua;
+    flex-grow: 1;
+}
+footer {
+    margin: 0;
+    min-height: 18px;
+    background-color: cornflowerblue;
+}
+
+@font-face {
+    font-family: FiraSans;
+    font-weight: normal;
+    src: url(fonts/FiraSans-Light.eot),
+        url(fonts/FiraSans-Light.ttf),
+        url(fonts/FiraSans-Light.woff),
+        url(fonts/FiraSans-Light.woff2);
+}
+
+@font-face {
+    font-family: FiraSans;
+    font-weight: bold;
+    src: url(fonts/FiraSans-Bold.eot),
+        url(fonts/FiraSans-Bold.ttf),
+        url(fonts/FiraSans-Bold.woff),
+        url(fonts/FiraSans-Bold.woff2);
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.windowSlider {
+    width: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.rowSlider {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 1600px;
+    position: relative;
+    top: 0;
+    left: 0px;
+    transition-property: left;
+    transition-duration: 0.7s;
+}
+.cadrSlider {
+    width: 400px;
+}
+
+.btnSlider {
+    display: flex;
+    box-sizing: border-box;
+    width: 280px;
+    height: 58px;
+    border-radius: 29px;
+    border-width: 2px;
+    border-color: white;
+    margin: 27px auto 0;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background-color: black;
+    color: white;
+    font-size: 23px;
+    font-family: FiraSans;
+    font-weight: normal;
+    cursor: pointer;
+}
+.containerSlider {
+    background-color: darkblue;
+    padding: 27px 0;
+}
